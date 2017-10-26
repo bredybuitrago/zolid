@@ -5,10 +5,13 @@ class Welcome extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
+                $this->load->model('data/dao_user_model');
+
 	}
 
 	public function index()
 	{
-		$this->load->view('login');
+            $this->dao_user_model->getAllUsers();
+            //$this->load->view('login');
 	}
 }
