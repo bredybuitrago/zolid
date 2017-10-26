@@ -3,13 +3,12 @@
 	class incident_model extends CI_Model{
 
 		protected $id;
-    protected $it;
     protected $status;
     protected $description;
     protected $dateStart;
     protected $dateFinish;
     protected $duration;
-    protected $name;
+    protected $type;
 
 		public function __construct(){
 
@@ -18,10 +17,6 @@
 		public function getId(){return $this->id;}
 
 		public function setId($id){$this->id = $id;}
-
-    public function getIt(){return $this->it;}
-
-		public function setIt($it){$this->it = $it;}
 
     public function getStatus(){return $this->status;}
 
@@ -43,19 +38,20 @@
 
 		public function setDuration($duration){$this->duration = $duration;}
 
-    public function getName(){return $this->name;}
+    public function getType(){return $this->type;}
 
-    public function setName($name){$this->name = $name;}
+    public function setType($Type){$this->type = $type;}
 
-		public function createIncident($id, $it, $status, $description, $dateStart, $dateFinish, $duration, $name){
+
+
+		public function createIncident($id, $status, $description, $dateStart, $dateFinish, $duration, $type){
       $this->setId($id);
-      $this->setIt($it);
       $this->setStatus($status);
       $this->setDescription($description);
       $this->setDateStart($dateStart);
       $this->setDateFinish($dateFinish);
       $this->setDuration($duration);
-			$this->setName($name);
+      $this->setType($type);
     }
 	}
 ?>

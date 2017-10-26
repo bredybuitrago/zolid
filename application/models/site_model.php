@@ -4,6 +4,9 @@
 
 		protected $id;
 		protected $name;
+		protected $band;
+		protected $sector;
+		protected $technology;
 
 		public function __construct(){
 
@@ -17,9 +20,25 @@
 
     public function setName($name){$this->name = $name;}
 
-		public function createSite($id, $name){
+    public function getBand(){return $this->band;}
+
+		public function setBand($band){$this->band = $band;}
+
+    public function getSector(){return $this->sector;}
+
+		public function setSector($sector){$this->sector = $sector;}
+
+    public function getTechnology(){return $this->technology;}
+
+		public function setTechnology($technology){$this->technology = $technology;}
+
+
+		public function createSite($id, $name, $band, $sector, $technology){
+      $this->setId($id);
 			$this->setName($name);
-			$this->setId($id);
+			$this->setBand($band);
+			$this->setSector($sector);
+			$this->setTechnology($technology);
     }
 	}
 ?>
