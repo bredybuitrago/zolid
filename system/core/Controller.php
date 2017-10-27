@@ -86,6 +86,7 @@ class CI_Controller {
         $this->load->model('bin/Validator');
         $this->load->model('bin/Crud');
         $this->load->model('bin/Model');
+        $this->load->model('bin/Auth');
         $this->request = new Request();
         log_message('info', 'Controller Class Initialized');
     }

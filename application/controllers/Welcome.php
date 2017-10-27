@@ -10,7 +10,7 @@ class Welcome extends CI_Controller {
     }
 
     public function index() {
-      try{
+      try{        
         $user = new User();
         $this->request->K_ID_USER = $user->getLastId();
         $user->insert($this->request->all());

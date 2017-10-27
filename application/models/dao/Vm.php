@@ -21,8 +21,8 @@ class Vm extends Model {
     protected $D_P_FINISH_VM;
     protected $D_R_START_VM;
     protected $D_R_FINISH_VM;
-    
-    //Los campos que desea ocultar para que no se reflejen en la vista.    
+
+    //Los campos que desea ocultar para que no se reflejen en la vista.
     protected $table = "vm";
     //Los campos que desea exculir del modelo.
     protected $exclude = ["hidden", "exclude", "table", "class", "db", "__data"];
@@ -31,122 +31,119 @@ class Vm extends Model {
         parent::__construct($properties);
         $this->class = get_class($this);
     }
-    
-        public function setKIDVM($K_ID_VM) {
+
+    public function setId($K_ID_VM) {
         $this->K_ID_VM = $K_ID_VM;
     }
-    public function getKIDVM() {
+    public function getId() {
         return $this->K_ID_VM;
     }
-    public function setKIDSVM($K_ID_SVM) {
+    public function setIdSvm($K_ID_SVM) {
         $this->K_ID_SVM = $K_ID_SVM;
     }
-    public function getKIDSVM() {
+    public function getIdSvm() {
         return $this->K_ID_SVM;
     }
-    public function setKIDSSVM($K_ID_SSVM) {
+    public function setIdSsvm($K_ID_SSVM) {
         $this->K_ID_SSVM = $K_ID_SSVM;
     }
-    public function getKIDSSVM() {
+    public function getIdSsvm() {
         return $this->K_ID_SSVM;
     }
-    public function setKIDRC($K_ID_RC) {
+    public function setIdRc($K_ID_RC) {
         $this->K_ID_RC = $K_ID_RC;
     }
-    public function getKIDRC() {
+    public function getIdRc() {
         return $this->K_ID_RC;
     }
-    public function setKIDFT($K_ID_FT) {
+    public function setIdFt($K_ID_FT) {
         $this->K_ID_FT = $K_ID_FT;
     }
-    public function getKIDFT() {
+    public function getIdFt() {
         return $this->K_ID_FT;
     }
-    public function setKIDSITE($K_ID_SITE) {
+    public function setIdSite($K_ID_SITE) {
         $this->K_ID_SITE = $K_ID_SITE;
     }
-    public function getKIDSITE() {
+    public function getIdSite() {
         return $this->K_ID_SITE;
     }
-    public function setKIDWORK($K_ID_WORK) {
+    public function setIdWork($K_ID_WORK) {
         $this->K_ID_WORK = $K_ID_WORK;
     }
-    public function getKIDWORK() {
+    public function getIdWork() {
         return $this->K_ID_WORK;
     }
-    public function setKIDCONTRACTOR($K_ID_CONTRACTOR) {
+    public function setIdContractor($K_ID_CONTRACTOR) {
         $this->K_ID_CONTRACTOR = $K_ID_CONTRACTOR;
     }
-    public function getKIDCONTRACTOR() {
+    public function getIdContractor() {
         return $this->K_ID_CONTRACTOR;
     }
-    public function setKIDINCIDENT($K_ID_INCIDENT) {
+    public function setIdIncident($K_ID_INCIDENT) {
         $this->K_ID_INCIDENT = $K_ID_INCIDENT;
     }
-    public function getKIDINCIDENT() {
+    public function getIdincident() {
         return $this->K_ID_INCIDENT;
     }
-    public function setNIDSITEACCES($N_ID_SITE_ACCES) {
+    public function setIdSiteAcces($N_ID_SITE_ACCES) {
         $this->N_ID_SITE_ACCES = $N_ID_SITE_ACCES;
     }
-    public function getNIDSITEACCES() {
+    public function getIdSiteAccess() {
         return $this->N_ID_SITE_ACCES;
     }
-    public function setNCLARORESPONSABLE($N_CLARO_RESPONSABLE) {
+    public function setClaroResponsable($N_CLARO_RESPONSABLE) {
         $this->N_CLARO_RESPONSABLE = $N_CLARO_RESPONSABLE;
     }
-    public function getNCLARORESPONSABLE() {
+    public function getClaroResponsable() {
         return $this->N_CLARO_RESPONSABLE;
     }
-    public function setNWEEK($N_WEEK) {
+    public function setWeek($N_WEEK) {
         $this->N_WEEK = $N_WEEK;
     }
-    public function getNWEEK() {
+    public function getWeek() {
         return $this->N_WEEK;
     }
-    public function setDEXECUTIONDATE($D_EXECUTION_DATE) {
+    public function setExecutationDate($D_EXECUTION_DATE) {
         $this->D_EXECUTION_DATE = $D_EXECUTION_DATE;
     }
-    public function getDEXECUTIONDATE() {
+    public function getExecutationDate() {
         return $this->D_EXECUTION_DATE;
     }
-    public function setNTECHAFFECTED($N_TECH_AFFECTED) {
+    public function setTechAffected($N_TECH_AFFECTED) {
         $this->N_TECH_AFFECTED = $N_TECH_AFFECTED;
     }
-    public function getNTECHAFFECTED() {
+    public function getTechAffected() {
         return $this->N_TECH_AFFECTED;
     }
-    public function setNBANDAFFECTED($N_BAND_AFFECTED) {
+    public function setBandAffected($N_BAND_AFFECTED) {
         $this->N_BAND_AFFECTED = $N_BAND_AFFECTED;
     }
-    public function getNBANDAFFECTED() {
+    public function getBandAffected() {
         return $this->N_BAND_AFFECTED;
     }
-    public function setDPSTARTVM($D_P_START_VM) {
+    public function setDPstartVm($D_P_START_VM) {
         $this->D_P_START_VM = $D_P_START_VM;
     }
-    public function getDPSTARTVM() {
+    public function getDPstartVm() {
         return $this->D_P_START_VM;
     }
-    public function setDPFINISHVM($D_P_FINISH_VM) {
+    public function setDPFinishVm($D_P_FINISH_VM) {
         $this->D_P_FINISH_VM = $D_P_FINISH_VM;
     }
-    public function getDPFINISHVM() {
+    public function getDPFinishVm() {
         return $this->D_P_FINISH_VM;
     }
-    public function setDRSTARTVM($D_R_START_VM) {
+    public function setDRStartVM($D_R_START_VM) {
         $this->D_R_START_VM = $D_R_START_VM;
     }
-    public function getDRSTARTVM() {
+    public function getDRStartVm() {
         return $this->D_R_START_VM;
     }
-    public function setDRFINISHVM($D_R_FINISH_VM) {
+    public function setDRFinishVM($D_R_FINISH_VM) {
         $this->D_R_FINISH_VM = $D_R_FINISH_VM;
     }
-    public function getDRFINISHVM() {
+    public function getDRFinishVM() {
         return $this->D_R_FINISH_VM;
     }
-
-
 }
-

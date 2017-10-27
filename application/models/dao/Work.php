@@ -8,8 +8,8 @@ class Work extends Model {
     protected $B_BAN_12H;
     protected $B_BAN_24H;
     protected $B_BAN_36H;
-    
-    //Los campos que desea ocultar para que no se reflejen en la vista.    
+
+    //Los campos que desea ocultar para que no se reflejen en la vista.
     protected $table = "work";
     //Los campos que desea exculir del modelo.
     protected $exclude = ["hidden", "exclude", "table", "class", "db", "__data"];
@@ -18,44 +18,43 @@ class Work extends Model {
         parent::__construct($properties);
         $this->class = get_class($this);
     }
-    
-        public function setKIDWORK($K_ID_WORK) {
+
+        public function setIdWork($K_ID_WORK) {
         $this->K_ID_WORK = $K_ID_WORK;
     }
-    public function getKIDWORK() {
+    public function getIdWork() {
         return $this->K_ID_WORK;
     }
-    public function setNNAMEWORK($N_NAME_WORK) {
+    public function setNameWork($N_NAME_WORK) {
         $this->N_NAME_WORK = $N_NAME_WORK;
     }
-    public function getNNAMEWORK() {
+    public function getNameWork() {
         return $this->N_NAME_WORK;
     }
-    public function setBBANPRECHEK($B_BAN_PRECHEK) {
+    public function setBanPrechek($B_BAN_PRECHEK) {
         $this->B_BAN_PRECHEK = $B_BAN_PRECHEK;
     }
-    public function getBBANPRECHEK() {
+    public function getBanPrechek() {
         return $this->B_BAN_PRECHEK;
     }
-    public function setBBAN12H($B_BAN_12H) {
+    public function setBan12H($B_BAN_12H) {
         $this->B_BAN_12H = $B_BAN_12H;
     }
-    public function getBBAN12H() {
+    public function getBan12H() {
         return $this->B_BAN_12H;
     }
-    public function setBBAN24H($B_BAN_24H) {
+    public function setBan24H($B_BAN_24H) {
         $this->B_BAN_24H = $B_BAN_24H;
     }
-    public function getBBAN24H() {
+    public function getBan24H() {
         return $this->B_BAN_24H;
     }
-    public function setBBAN36H($B_BAN_36H) {
+    public function setBan36H($B_BAN_36H) {
         $this->B_BAN_36H = $B_BAN_36H;
     }
-    public function getBBAN36H() {
+    public function getBan36H() {
         return $this->B_BAN_36H;
     }
 
 
 }
-
