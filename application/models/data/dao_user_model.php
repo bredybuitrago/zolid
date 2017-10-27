@@ -9,8 +9,8 @@ class dao_user_model extends CI_Model {
     public function __construct() {
         $this->load->model('data/configdb_model');
         $this->load->model('user_model');
-        //Se instancia la conexión...
-        $temp = new configdb_models();
+//        //Se instancia la conexión...
+        $temp = new configdb_model();
         $this->session = $temp->openSession();
     }
 
@@ -24,16 +24,21 @@ class dao_user_model extends CI_Model {
         if ($this->session != "false") {
             $result = $this->session->query($sql);
             if ($result->num_rows > 0) {
-                $i = 0;
                 while ($row = $result->fetch_assoc()) {
                     $eng = new user_model;
                     $eng->createUser($row['K_ID_USER'], $row['N_NAME_USER'], $row['N_LASTNAME_USER'], $row['N_MAIL_USER'], $row['N_PHONE_USER'], $row['N_CELLPHONE_USER']);
                     $permissions = $this->getPermissions($row['K_ID_USER']);
                     $eng->setPermissions($permissions);
-//                    $
+                    $response[] = $eng;
                 }
+            } else {
+
             }
         }
+    }
+
+    public function getAll(){
+      return DB::table("user")->get();
     }
 
     /**
@@ -41,7 +46,7 @@ class dao_user_model extends CI_Model {
      * @param type $idUser
      */
     private function getPermissions($idUser) {
-        
+
     }
 
 }
