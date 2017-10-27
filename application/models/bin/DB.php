@@ -13,6 +13,10 @@ class DB extends PDO {
         $this->init($table);
     }
 
+    public function setTable($table){
+      $this->table = (isset($table)) ? $table : "";
+    }
+
     public function init($table = null) {
         $this->cogs = require APPPATH.'config/db.php';
         $this->sql = "";
@@ -138,7 +142,7 @@ class DB extends PDO {
         return $this;
     }
 
-    public function get($fech = null) {      
+    public function get($fech = null) {
         try {
             if ($this->sql == "") {
                 $this->sql = "SELECT * FROM $this->table";
@@ -231,6 +235,14 @@ class DB extends PDO {
         }
         $sth->execute();
     }
+
+    // public function begin(){
+    //   $this->beginTransaction();
+    // }
+
+    // public function commitTransaction(){
+    //   $this->commit();
+    // }
 
     function getSql() {
         return $this->sql;

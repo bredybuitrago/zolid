@@ -13,7 +13,6 @@ class Model extends Crud {
     }
 
     public function __get($varName) {
-
         if (!array_key_exists($varName, $this->__data)) {
             //this attribute is not defined!
             throw new Exception('...');
