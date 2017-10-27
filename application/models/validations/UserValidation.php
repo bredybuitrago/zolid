@@ -16,7 +16,7 @@ class UserValidation extends Validator {
                 "N_NAME_USER" => "required",
                 "N_LASTNAME_USER" => "required",
                 "N_MAIL_USER" => "required|email",
-                "N_PHONE_USER" => "required",
+                "N_PHONE_USER" => "required|min:20|max:40",
                 "N_CELLPHONE_USER" => "required"
               ],
               [

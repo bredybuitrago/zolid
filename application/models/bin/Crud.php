@@ -154,4 +154,9 @@ class Crud {
         }
     }
 
+    public function setTransaction($db){
+      $this->db = $db;
+      $this->db->setTable($this->table);
+    }
+
 }

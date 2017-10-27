@@ -12,7 +12,8 @@ class Validator extends Request {
         $this->messagesInit = [
             "required" => "El campo __FIELD__ es requerido",
             "unique" => "Ya existe un registro para el mismo campo (__FIELD__).",
-            "email" => "El email es inválido"
+            "email" => "El email es inválido",
+            "numeric" => "El (__FIELD__) no es númerico.",
         ];
     }
 
@@ -57,6 +58,15 @@ class Validator extends Request {
             case "unique":
                 $this->unique($table, $field, $value);
                 break;
+            case "numeric":
+                $this->numeric($table, $field, $value);
+                break;
+            case "min":
+                $this->min($table, $field, $value);
+                break;
+            case "max":
+                $this->max($table, $field, $value);
+                break;
         }
     }
 
@@ -76,6 +86,15 @@ class Validator extends Request {
             $this->errors[] = $this->getError($field, "email", $messages);
         }
         return $rtn;
+    }
+
+    public function numeric($field, $value, $messages = null){
+      $rtn = (is_numeric(null) ? true : false);
+      $messages = (count($messages) == 0) ? $this->messages : $messages;
+      if (!$rtn && is_array($messages)) {
+          $this->errors[] = $this->getError($field, "numeric", $messages);
+      }
+      return $rtn;
     }
 
     public function url($field, $value, $messages = null) {
@@ -106,6 +125,50 @@ class Validator extends Request {
         return $rtn;
     }
 
+    /**
+     *
+     * @param String $min
+     * @param String $field
+     * @param String $value
+     * @param Array $messages
+     * @return Boolean
+     */
+    public function min($min, $field, $value, $messages = null){
+      $value = ($value != null && trim($value) != "") ? $value : false;
+      if(!$value){
+        return false;
+      }
+      $length = strlen($value);
+      $rtn = $length >= $min;
+      $messages = (count($messages) == 0) ? $this->messages : $messages;
+      if (!$rtn) {
+          $this->errors[] = $this->getError($field, "min", $messages);
+      }
+      return $rtn;
+    }
+
+    /**
+     *
+     * @param String $max
+     * @param String $field
+     * @param String $value
+     * @param Array $messages
+     * @return Boolean
+     */
+    public function max($max, $field, $value, $messages = null){
+      $value = ($value != null && trim($value) != "") ? $value : false;
+      if(!$value){
+        return false;
+      }
+      $length = strlen($value);
+      $rtn = $length <= $max;
+      $messages = (count($messages) == 0) ? $this->messages : $messages;
+      if (!$rtn) {
+          $this->errors[] = $this->getError($field, "max", $messages);
+      }
+      return $rtn;
+    }
+
     private function getError($field, $action, $messages) {
         if ($this->errorsKeys) {
             $rtn = isset($messages["$field.$action"]) ? ["$field.$action" => $messages["$field.$action"]] : ["$field.$action" => $this->getMessage($field, $action)];
@@ -119,14 +182,25 @@ class Validator extends Request {
         return str_replace("__FIELD__", $field, $this->messagesInit[$action]);
     }
 
+    /**
+     * Comprobará si hubieron errores en la validación y retornará true o false según sea el caso.
+     * @return Boolean
+     */
     public function fails() {
         return (is_array($this->errors)) && (count($this->errors) > 0);
     }
 
+   /**
+   * Retornará el arreglo de errores encontrados en la validación...
+   * @return Boolean
+   */
     function getErrors() {
         return $this->errors;
     }
 
+    /**
+    *  Comprobará si existe un error específico en la validación realizada, es decir podrás comprobar si existe un error del tipo __FIELD__.ERROR.
+    */
     function existError($keyName) {
         if (!is_array($this->errors)) {
             return false;
